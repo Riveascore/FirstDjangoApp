@@ -7,4 +7,4 @@ def index(request):
     'insert_me': "Instance variables!!!"
   }
   # return HttpResponse("<h1>Hello World</h1>")
-  return render(request, 'index.html', context=context_dict)
+  return render(request, 'first_app/index.html', context=context_dict)
