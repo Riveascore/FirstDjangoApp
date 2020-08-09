@@ -8,7 +8,7 @@ class Topic(models.Model):
       return self.top_name
   
 class WebPage(models.Model):
-  topic = models.ForeignKey(Topic)
+  topic = models.ForeignKey('Topic', on_delete=models.PROTECT)
   name = models.CharField(max_length=264, unique=True)
   url = models.URLField(unique=True)
 
@@ -16,7 +16,7 @@ class WebPage(models.Model):
       return self.name
   
 class AccessRecord(models.Model):
-  name = models.ForeignKey(WebPage)
+  name = models.ForeignKey('WebPage', on_delete=models.PROTECT)
   date = models.DateField()
 
   def __str__(self):
